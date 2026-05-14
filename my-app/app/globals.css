@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --header-height: 64px; 
+  
+  --primary:        #0047AB;
+  --blue-to-black:  #0047AB;
+  --primary-hover:  #003d99;
+  --primary-bg:     #EEF3FB;
+  --secondary-bg:   #F5F7FA;
+  --sections-text:  #292942;
+  --main-text:      #4A4A68;
+  --correct-bg:     #00E6BF;
+  --correct-accent: #193E19;
+  --correct-border: #193E19;
+  --wrong-bg:       #FFEBEE;
+  --wrong-accent:   #981F1F;
+  --white-bg:       #F5F7FA;
+  --blue-accent:    #0047AB;
+  --white-to-blue:  #F5F7FA;
+  --header-border:  transparent;
+  --hero-border:    transparent;
+  --blue-buttons-border: transparent;
+  --blue-to-white:  #0047AB;
+  --completed-label-bg: #E0F4FF;
+  --not-started-label-border: var(--secondary-bg);
+  --breadcrumb-border: color-mix(in srgb, var(--main-text), transparent 75%);
+  --tabs-border: transparent;
+}
+
+[data-theme='dark'] {
+  --primary:        #0047AB;
+  --blue-to-black:  #1E2130;
+  --primary-hover:  #003d99;
+  --primary-bg:     #12141C;
+  --secondary-bg:   #1E2130;
+  --sections-text:  #E8EAF6;
+  --main-text:      #D4D9EF;
+  --correct-bg:     #95D09A;
+  --correct-accent: #193E19;
+  --correct-border: #1E2130;
+  --wrong-bg:       #3B1A0D;
+  --wrong-accent:   #FFAB76;
+  --white-bg:       #E8EAF6;
+  --blue-accent:    #90CAF9;
+  --white-to-blue:  #90CAF9;
+  --header-border:  #90CAF9;
+  --hero-border:    #90CAF9;
+  --blue-buttons-border: #E8EAF6;
+  --blue-to-white:  #E8EAF6;
+  --completed-label-bg: #1E2130;
+  --not-started-label-border: transparent;
+  --breadcrumb-border: #90CAF9;
+  --tabs-border: #E8EAF6;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-sticky-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--primary-bg);
+  max-height: none !important; 
+}
+
+html {
+  font-size: calc(16px * var(--text-scale, 1));
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--sections-text);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  min-height: 100vh;
+  filter: contrast(var(--contrast-scale, 1));
+  line-height: 1.5;
+}
+
+h1 { font-size: 1.875rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+p, button, input, a, label, li, td, th, span, div, input { font-size: 1rem; }
+
+h1, h2, h3 {
+  color: var(--sections-text);
+}
+
+h1, h2, h3, a, button, span{
+   font-weight: bold;
+}
+
+button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;           
+  white-space: nowrap; 
+  cursor: pointer;
+  flex-shrink: 0;   
+}
+
+.primary-btn{
+  background: var(--primary);
+  color: var(--white-bg);
+}
+
+.action-btn{
+  border: 3px solid var(--tabs-border);
+  border-radius: 15px; 
+  padding: 10px 25px;
+}
+
+.secondary-btn{
+  border: 3px solid var(--blue-to-white);
+  color: var(--blue-to-white);
+}
+
+p {
+  margin-bottom: 2em;
+  color: var(--main-text);
+  max-width: 80ch;
+}
+
+
+*:focus-visible {
+  outline: 4px solid #FFD700;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 9px #000000;
+  border-radius: 4px;
+  position: relative;
+  z-index: 9999;
+}
+
+a {
+  display: inline-flex;
+  align-items: center; 
+  text-decoration: underline;
+  color: var(--blue-accent);
+  gap: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  background: var(--blue-to-black);
+  color: var(--white-to-blue);
+  border-radius: 0 0 15px 15px;
+}
+
+.skip-link:focus {
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+}
+
+.skip-container {
+  position: relative;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);  
+  white-space: nowrap;
+  border: 0;
+}
+
+.stepper-no-arrows::-webkit-outer-spin-button,
+.stepper-no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.stepper-no-arrows {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
