@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useTTS } from '@/app/context/TTSContext';
 import StepperButton from './StepperButton';
+import { SkipBack, Play, Pause, X } from 'lucide-react';
  
 export default function TTSPlayerBar() {
   const { playingSectionId, playingSectionTitle, isPlaying, rate, stop, togglePause, changeRate, restart, skip } = useTTS();
@@ -86,9 +87,12 @@ export default function TTSPlayerBar() {
             minWidth: 'fit-content'
           }}
         >
-          {iconBtn(restart, 'Restart audio', '⏮')}
+          {iconBtn(restart, 'Restart audio', <SkipBack size={16} fill="currentColor" />)}
           {iconBtn(() => skip(-10), 'Skip back 10 seconds', <span>-10s</span>)}
-          {iconBtn(togglePause, isPlaying ? 'Pause' : 'Play', isPlaying ? '⏸' : '▶', true)}
+          {iconBtn(
+            togglePause, 
+            isPlaying ? 'Pause' : 'Play', 
+            isPlaying ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />, true)}
           {iconBtn(() => skip(10), 'Skip forward 10 seconds', <span>+10s</span>)}
         </div>
   
@@ -127,7 +131,7 @@ export default function TTSPlayerBar() {
               flexShrink: 0
             }}
           >
-            <span aria-hidden="true">✕</span>
+            <X size={16} strokeWidth={2.5} aria-hidden="true" />
           </button>
         </div>
       </div>

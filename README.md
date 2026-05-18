@@ -1,4 +1,4 @@
-Šioje repozitorijoje yra pateikiamas galutinis įgyvendintos edukacinės svetainės kodas. Pats edukacinės svetainės kūrimo procesas vyko lokaliai. Įgyvendinta edukacinė svetainė yra bakalauro baigiomojo darbo dalis.  Ji yra sukurta siekiant parodyti, kaip mokymosi medžiagą galima pritaikyti naudotojams su refrakcijos, spalvų suvokimo regos sutrikimais, silpnaregiams bei visiškiems akliems.
+Šioje repozitorijoje yra pateikiamas galutinis įgyvendintos edukacinės svetainės kodas. Pats edukacinės svetainės kūrimas vyko lokaliai. Įgyvendinta edukacinė svetainė yra bakalauro baigiomojo darbo dalis.  Ji yra sukurta parodyti, kaip mokymosi medžiagą galima pritaikyti naudotojams su refrakcijos, spalvų suvokimo regos sutrikimais, silpnaregiams bei visiškiems akliems.
 
 ## Reikalavimai
 
@@ -32,4 +32,3 @@ npm run start
 ```
 
 Projektas bus pasiekiamas, įvedant naršyklėje `http://localhost:3000` adresą.
-
